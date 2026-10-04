@@ -1,0 +1,13 @@
+{
+  "name": "telugu-wedding-invitation-app",
+  "version": "1.0.0",
+  "description": "Traditional Telugu Wedding Web Application (Pelli Sandadi / Pelli Pilupu)",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "backend": "npm --prefix backend run dev",
+    "frontend": "npm --prefix frontend run dev"
+  },
+  "keywords": ["telugu", "wedding", "react", "express", "mongodb", "tailwind"],
+  "author": "",
+  "license": "ISC"
+}

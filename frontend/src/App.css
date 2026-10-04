@@ -1,0 +1,20 @@
+/* App specific styling */
+.mandapam-arch {
+  position: relative;
+}
+
+.mandapam-arch::before {
+  content: '❖';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #D4AF37;
+  font-size: 1.25rem;
+}
+
+.talambralu-particle {
+  pointer-events: none;
+  position: fixed;
+  z-index: 50;
+}
