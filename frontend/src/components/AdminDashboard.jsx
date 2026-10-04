@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, Download, Trash2, Search, Filter, Users, UserCheck, RefreshCw, Lock, ArrowLeft, Heart, Phone, Utensils } from 'lucide-react';
+import { API_ENDPOINTS } from '../config/api';
 
 export default function AdminDashboard({ onBackToHome, lang }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -34,8 +35,8 @@ export default function AdminDashboard({ onBackToHome, lang }) {
     setLoading(true);
     try {
       const [resGuests, resStats] = await Promise.all([
-        fetch('/api/guests'),
-        fetch('/api/guests/stats'),
+        fetch(API_ENDPOINTS.GUESTS),
+        fetch(API_ENDPOINTS.STATS),
       ]);
 
       const dataGuests = await resGuests.json();
@@ -57,7 +58,7 @@ export default function AdminDashboard({ onBackToHome, lang }) {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to remove this RSVP entry?')) return;
     try {
-      await fetch(`/api/guests/${id}`, { method: 'DELETE' });
+      await fetch(`${API_ENDPOINTS.GUESTS}/${id}`, { method: 'DELETE' });
       setGuests((prev) => prev.filter((g) => g._id !== id));
       // Refresh stats
       fetchGuests();

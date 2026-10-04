@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle2, Heart, Users, Utensils, Sparkles, MessageCircle, AlertCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { API_ENDPOINTS } from '../config/api';
 
 const QUICK_BLESSINGS_TELUGU = [
   "🌸 నూరేళ్ళ పంట మీ కల్యాణ వేడుక! సదా మీ దాంపత్యం సుఖసంతోషాలతో వర్ధిల్లాలి!",
@@ -53,7 +54,7 @@ export default function RsvpForm({ lang, onRsvpSubmitted }) {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/guests', {
+      const response = await fetch(API_ENDPOINTS.GUESTS, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

@@ -18,6 +18,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { API_ENDPOINTS } from '../config/api';
 
 // Auspicious Telugu Wedding Events
 const WEDDING_EVENTS = [
@@ -121,7 +122,7 @@ export default function InvitationPage({ lang, setLang, onNavigateAdmin }) {
 
   // Fetch live wishes
   useEffect(() => {
-    fetch('/api/guests')
+    fetch(API_ENDPOINTS.GUESTS)
       .then((res) => res.json())
       .then((data) => {
         if (data.success && data.data) {
